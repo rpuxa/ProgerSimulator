@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Симулятор программиста</string>
+    <string name="app_id">ca-app-pub-9182384050264940~4065492509</string>
+    <string name="main_banner">ca-app-pub-9182384050264940/4691468027</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+</resources>

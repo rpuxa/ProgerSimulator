@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "50793584018",
+    "firebase_url": "https://progersimulator.firebaseio.com",
+    "project_id": "progersimulator",
+    "storage_bucket": "progersimulator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50793584018:android:893cf094ddb0af04",
+        "android_client_info": {
+          "package_name": "ru.rpuxa.progersimulator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "50793584018-cbnohma3tlhr6o7h8t1ev459thkbucvj.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "50793584018-cbnohma3tlhr6o7h8t1ev459thkbucvj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6eeQCYoDfE4FJRrT0JoJTrEGFmcRxVY8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

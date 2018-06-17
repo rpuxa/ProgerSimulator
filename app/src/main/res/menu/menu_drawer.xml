@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="Программирование">
+        <menu>
+            <item
+                android:id="@+id/project_list_menu"
+                android:icon="@drawable/project_menu_icon"
+                android:title="Ваши проекты" />
+            <item
+                android:id="@+id/pc_config_menu"
+                android:icon="@drawable/config_menu_icon"
+                android:title="Конфигурация компьютера" />
+        </menu>
+    </item>
+
+    <item android:title="Управление">
+        <menu>
+            <item
+                android:id="@+id/bank_menu_drawer"
+                android:enabled="false"
+                android:icon="@drawable/bank_menu_icon"
+                android:title="Банк (5 уровень)" />
+            <item
+                android:id="@+id/company_menu_drawer"
+                android:enabled="false"
+                android:icon="@drawable/company_menu_icon"
+                android:title="Компании (50 уровень)" />
+        </menu>
+    </item>
+
+    <item android:title="Прочее">
+        <menu>
+            <item
+                android:id="@+id/author_menu_item"
+                android:icon="@drawable/author_menu_icon"
+                android:title="Автор" />
+            <item
+                android:id="@+id/exit_menu_item"
+                android:icon="@drawable/exit_menu_icon"
+                android:title="Выйти" />
+        </menu>
+    </item>
+
+
+
+</menu>

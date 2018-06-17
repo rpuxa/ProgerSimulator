@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Работы выполнено"
+                tools:layout_editor_absoluteX="163dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:text="Процент багов" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="34dp">
+
+                <TextView
+                    android:id="@+id/wp_project_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:gravity="right|center_vertical"
+                    android:text="1321"
+                    android:textSize="30sp" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="46dp"
+                    android:layout_height="49dp"
+                    android:layout_weight="0"
+                    app:srcCompat="@drawable/hammer" />
+            </LinearLayout>
+
+            <include
+                android:id="@+id/progress_bar_project_code"
+                layout="@layout/circle_progress_bar"
+                android:layout_width="100dp"
+                android:layout_height="154dp"
+                android:layout_gravity="center"
+                android:layout_weight="1" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Код"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ru.rpuxa.progersimulator.views.NonScrollListView
+        android:id="@+id/code_list_view_project_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0dp"
+        android:isScrollContainer="false"
+        android:scrollbars="none" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Баги"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ru.rpuxa.progersimulator.views.NonScrollListView
+        android:id="@+id/bugs_list_view_project_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0dp"
+        android:scrollbars="none" />
+
+</LinearLayout>

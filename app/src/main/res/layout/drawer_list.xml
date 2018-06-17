@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/drawer_drawer_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/super_light_grey"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/icon_drawer_list"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:background="@color/super_light_grey"
+            android:padding="5dp"
+            android:scaleType="fitStart"
+            app:srcCompat="@drawable/code" />
+
+        <TextView
+            android:id="@+id/text_drawer_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingBottom="15dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="15dp"
+            android:text="Name"
+            android:textColor="@color/code"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/arrow_drawer_list"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="15dp"
+            android:layout_weight="0"
+            app:srcCompat="@drawable/arrow_down" />
+
+    </LinearLayout>
+
+</LinearLayout>
