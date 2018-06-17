@@ -16,6 +16,11 @@ class AppStatistic : SuperSerializable {
     var creditsToPay = 0L
     var projectsCount = 0
     var wpAll = 0L
+    var clickToAuthorContent = 0
+    var successfullyAdLoaded = 0
+    var unsuccessfullyAdLoaded = 0
+    var rating = 0
+    var review = ""
 
     constructor(player: Player) {
         update(player)
@@ -33,7 +38,7 @@ class AppStatistic : SuperSerializable {
     }
 
     fun save() {
-        ru.rpuxa.progersimulator.cache.save(serializable(), MainActivity.listener!!.getInstance().filesDir, STATISTIC)
+        ru.rpuxa.progersimulator.cache.save(serializable(), MainActivity.listener.getInstance().filesDir, STATISTIC)
     }
 
     fun send() {
@@ -46,7 +51,12 @@ class AppStatistic : SuperSerializable {
         bundle.putLong("creditsToPay", creditsToPay)
         bundle.putInt("projectsCount", projectsCount)
         bundle.putLong("wpAll", wpAll)
-        val activity = MainActivity.listener!!.getInstance()
+        bundle.putInt("clickToAuthorContent", clickToAuthorContent)
+        bundle.putInt("successfullyAdLoaded", successfullyAdLoaded)
+        bundle.putInt("unsuccessfullyAdLoaded", unsuccessfullyAdLoaded)
+        bundle.putInt("rating", rating)
+        bundle.putString("review", review)
+        val activity = MainActivity.listener.getInstance()
         activity.runOnUiThread {
             if (activity.checkNetworkConnection())
                 FirebaseAnalytics.getInstance(activity).logEvent("app_statistic", bundle)

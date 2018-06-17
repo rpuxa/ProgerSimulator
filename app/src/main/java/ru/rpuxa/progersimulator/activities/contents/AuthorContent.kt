@@ -6,6 +6,7 @@ import kotlinx.android.synthetic.main.author_content.view.*
 import kotlinx.android.synthetic.main.content.*
 import ru.rpuxa.progersimulator.R
 import ru.rpuxa.progersimulator.activities.Content
+import ru.rpuxa.progersimulator.statistic.AppStatistic
 
 class AuthorContent : Content() {
     override fun layout() = R.layout.author_content
@@ -17,6 +18,7 @@ class AuthorContent : Content() {
     }
 
     override fun onCreate() {
+        AppStatistic.statistic.clickToAuthorContent++
     }
 
 }

@@ -10,8 +10,10 @@ import ru.rpuxa.progersimulator.cache.SuperSerializable
 import ru.rpuxa.progersimulator.files.nextDouble
 import ru.rpuxa.progersimulator.files.sqr
 import ru.rpuxa.progersimulator.gameplay.player_fields.Money
+import ru.rpuxa.progersimulator.gameplay.player_fields.Settings
 import ru.rpuxa.progersimulator.gameplay.player_fields.WorkPoints
 import ru.rpuxa.progersimulator.statistic.AppStatistic
+import ru.rpuxa.progersimulator.views.ReviewDialog
 import java.lang.Math.pow
 import java.lang.Math.round
 import java.util.*
@@ -25,35 +27,19 @@ class Player : Workable, SuperSerializable {
         val random = Random()
     }
 
-
-    var day: Int
-    var level: Double
-    lateinit var money: Money
-    lateinit var wp: WorkPoints
-    lateinit var config: PCConfig
-    var projects: ArrayList<Project>
-    var credits: ArrayList<Credit>
+    var day = 0
+    var level = 0.0
+    var money = Money()
+    var wp = WorkPoints()
+    var settings = Settings()
+    var config = PCConfig()
+    var projects = ArrayList<Project>()
+    var credits = ArrayList<Credit>()
     @Transient
-    var daysWithoutAd: Int
+    var daysWithoutAd = 0
 
-    constructor(day: Int, level: Double, projects: ArrayList<Project>, credits: ArrayList<Credit>) {
-        this.day = day
-        this.level = level
-        this.projects = projects
-        this.credits = credits
-        daysWithoutAd = 0
+    fun onCreate() {
         openNewMenu()
-    }
-
-    constructor() {
-        day = 0
-        level = 0.0
-        money = Money()
-        wp = WorkPoints()
-        config = PCConfig()
-        credits = ArrayList()
-        projects = ArrayList()
-        daysWithoutAd = 0
     }
 
     fun set(money: Money, wp: WorkPoints, config: PCConfig) {
@@ -81,15 +67,20 @@ class Player : Workable, SuperSerializable {
             val d = day - c.startDay
             if (d != 0 && d % 10 == 0) {
                 if (c.toPay <= money.value)
-                    MainActivity.listener!!.getInstance().showToast("Часть кредита выплачена", true)
+                    MainActivity.listener.getInstance().showToast("Часть кредита выплачена", true)
                 if (c.pay())
                     credits.remove(c)
             }
         }
+        if (settings.showReview <= 0) {
+            ReviewDialog(MainActivity.listener.getInstance()).createDialog()
+        } else {
+            settings.showReview--
+        }
         AppStatistic.statistic.send()
-        val content = MainActivity.listener!!.getInstance().contentQueue.peekFirst()
+        val content = MainActivity.listener.getInstance().contentQueue.peekFirst()
         (content as? BankMenuContent)?.update()
-        if (daysWithoutAd <= 0 && MainActivity.listener!!.getInstance().showBanner())
+        if (daysWithoutAd <= 0 && MainActivity.listener.getInstance().showBanner())
             daysWithoutAd = 10 + random.nextInt(10)
         else
             daysWithoutAd--
@@ -139,7 +130,7 @@ class Player : Workable, SuperSerializable {
 
     private fun openNewMenu() {
         val newLevel = level.toInt()
-        val activity = MainActivity.listener!!.getInstance()
+        val activity = MainActivity.listener.getInstance()
         if (newLevel >= 5) {
             activity.nav_view.menu.findItem(R.id.bank_menu_drawer).isEnabled = true
             activity.nav_view.menu.findItem(R.id.bank_menu_drawer).title = "Банк"
@@ -175,5 +166,5 @@ class Player : Workable, SuperSerializable {
 
 }
 
-fun setMoneyBar() = MainActivity.listener!!.getInstance().setMoneyBar(Player.player.money, Player.player.wp, Player.player.level)
+fun setMoneyBar() = MainActivity.listener.getInstance().setMoneyBar(Player.player.money, Player.player.wp, Player.player.level)
 

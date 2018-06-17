@@ -45,7 +45,7 @@ import java.util.*
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, MainActivityListener {
 
     companion object {
-        var listener: MainActivityListener? = null
+        lateinit var listener: MainActivityListener
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         listener = this
         setContentView(R.layout.main)
         Player.player = deserializePlayer(filesDir)
+        Player.player.onCreate()
         AppStatistic.statistic = deserializeStatistic(filesDir)
         setSupportActionBar(toolbar)
         val toggle = ActionBarDrawerToggle(
@@ -116,10 +117,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     fun showBanner() : Boolean {
         val b = mainBanner.isLoaded
-        if (b)
+        if (b) {
+            AppStatistic.statistic.successfullyAdLoaded++
             mainBanner.show()
-        else
+        }
+        else {
+            AppStatistic.statistic.unsuccessfullyAdLoaded++
             mainBanner.loadAd(AdRequest.Builder().build())
+        }
         return b
     }
 

@@ -8,7 +8,7 @@ import ru.rpuxa.progersimulator.activities.contents.ProjectContent
 import ru.rpuxa.progersimulator.gameplay.Player
 import ru.rpuxa.progersimulator.gameplay.Project
 
-class CreateProjectDialog(var parent: MainActivity) : Dialog(parent) {
+class CreateProjectDialog(val parent: MainActivity) : Dialog(parent) {
 
     fun createDialog() {
         setContentView(R.layout.create_project_dialog)
